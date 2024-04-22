@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import localFont from 'next/font/local';
 
 const inter = Inter({ subsets: ["latin"] });
+
+const font = localFont({
+  src: '../public/fonts/AGPX.otf',
+  display:'swap',
+})
 
 export const metadata: Metadata = {
   title: "deeroe",
@@ -16,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={font.className}>{children}</body>
     </html>
   );
 }
