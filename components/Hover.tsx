@@ -71,7 +71,7 @@ const Hover = () => {
           </motion.div>
 
           <div className="absolute top-0 flex">
-            <motion.div variants={arrowAnimation} className="md:text-[6rem]">#</motion.div>
+            <motion.div variants={arrowAnimation} className="md:text-[6rem] text-accent">#</motion.div>
             <ul id="images" className="flex w-full">
               {i.images.map((url, idx) => (
                 <motion.li
