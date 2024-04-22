@@ -54,31 +54,31 @@ const Hover = () => {
           variants={parent}
           initial={"initial"}
           whileHover={"animate"}
-          className="h-[8rem] overflow-hidden relative cursor-pointer"
+          className="md:h-[8rem] overflow-hidden relative cursor-pointer"
         >
           <motion.div
             id="texts"
             variants={textAnimation}
             className="flex justify-around items-center"
           >
-            <div className="flex items-center">
-              <h1 className="text-[6rem] uppercase font-medium">{i.address}</h1>
-              <p className="text-[1.3rem] ml-6 mt-8 uppercase font-medium">
+            <div className="flex flex-col sm:flex-row items-center">
+              <h1 className="text-[3rem] md:text-[6rem] uppercase font-medium">{i.address}</h1>
+              <p className="md:text-[1.2rem] ml-6 mb-6 sm:mb-0 uppercase font-medium">
                 / / {i.city}
               </p>
             </div>
-            <h1 className="text-[6rem] font-medium">*{idx + 1}</h1>
+            <h1 className="text-[1rem] md:text-[6rem] font-medium hidden sm:block">*{idx + 1}</h1>
           </motion.div>
 
           <div className="absolute top-0 flex">
-            <motion.div variants={arrowAnimation} className="text-[6rem]">#</motion.div>
+            <motion.div variants={arrowAnimation} className="md:text-[6rem]">#</motion.div>
             <ul id="images" className="flex w-full">
               {i.images.map((url, idx) => (
                 <motion.li
                   key={idx}
                   variants={imgAnimation}
                   custom={idx + i.images.length}
-                  className="mt-4 w-[16rem]"
+                  className="mt-4 md:w-[16rem]"
                 >
                   <div className="relative ml-[4rem]">
                     <Image
