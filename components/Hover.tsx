@@ -20,19 +20,29 @@ const textAnimation: Variants = {
 const arrowAnimation: Variants = {
   initial: {
     opacity: 0,
+    transform: 'translate3d(-101%, 0, 0)',
   },
   animate: {
     opacity: 1,
+    transform: 'translate3d(0, 0, 0)',
   },
 };
 
 const imgAnimation: Variants = {
   initial: {
     opacity: 0,
+    transform: 'translate3d(0, 101%, 0)',
   },
-  animate: {
+  animate: (i) => ({
     opacity: 1,
-  },
+    transform: 'translate3d(0, 0, 0)',
+    transition: {
+      delay: i * 0.04,
+      duration: 0.4,
+      ease: "easeOut",
+      easings: '',
+    },
+  }),
 };
 
 const Hover = () => {
@@ -54,26 +64,27 @@ const Hover = () => {
             <div className="flex items-center">
               <h1 className="text-[6rem] uppercase font-medium">{i.address}</h1>
               <p className="text-[1.3rem] ml-6 mt-8 uppercase font-medium">
-                / {i.city}
+                / / {i.city}
               </p>
             </div>
             <h1 className="text-[6rem] font-medium">*{idx + 1}</h1>
           </motion.div>
 
-          <div className="absolute top-0 flex items-center">
-            <motion.div variants={arrowAnimation} className="text-[6rem]">x</motion.div>
+          <div className="absolute top-0 flex">
+            <motion.div variants={arrowAnimation} className="text-[6rem]">#</motion.div>
             <ul id="images" className="flex w-full">
               {i.images.map((url, idx) => (
                 <motion.li
                   key={idx}
                   variants={imgAnimation}
+                  custom={idx + i.images.length}
                   className="mt-4 w-[16rem]"
                 >
                   <div className="relative ml-[4rem]">
                     <Image
                       src={url}
                       alt="portfolio"
-                      width={500}
+                      width={250}
                       height={250}
                       className="h-full object-cover"
                     />
